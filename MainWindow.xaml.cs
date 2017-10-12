@@ -22,32 +22,17 @@ namespace ProjectTracker
     public partial class MainWindow : Window
     {
         private ProjectsAccess pa;
-        int i = 0;
-        CollectionViewSource researchProjectViewSource;
 
         public MainWindow()
         {
             InitializeComponent();
-
             pa = new ProjectsAccess();
-
-        }
-
-        internal void UpdateContext()
-        {
-            researchProjectViewSource.Source = new ObservableCollection<ResearchProject>(pa.GetProjectsList());
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            researchProjectViewSource = ((CollectionViewSource)(FindResource("researchProjectViewSource")));
-            //load data
-            UpdateContext();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ResearchProject rp = new ResearchProject()
+            Button clicked = (Button) sender;
+            /*ResearchProject rp = new ResearchProject()
             {
                 Investigators = "Eli Coyle",
                 CoInvestigators = "Eli's Assistant",
@@ -62,6 +47,38 @@ namespace ProjectTracker
             pa.AddProject(rp);
             i++;
             UpdateContext();
+            */
+            switch (clicked.Name)
+            {
+                case "AddButton":
+                    AddWindow aw = new AddWindow();
+                    App.Current.MainWindow = aw;
+                    this.Close();
+                    aw.ShowDialog();
+                    break;
+                case "ListButton":
+                    ProjectListWindow lw = new ProjectListWindow();
+                    App.Current.MainWindow = lw;
+                    this.Close();
+                    lw.ShowDialog();
+                    break;
+                case "ReportButton":
+                    /*      do I need to switch windows, or just open new? hmm 
+                    ReportWindow rw = new ReportWindow();
+                    App.Current.MainWindow = rw;
+                    this.Close();
+                    rw.ShowDialog();
+                    */
+                    break;
+                case "clearButton":
+                    //don't need to change windows, maybe need to make a new one 
+                    break;
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            pa.OnClosing();
         }
     }
 }

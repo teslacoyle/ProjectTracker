@@ -11,7 +11,7 @@ namespace ProjectTracker
     class ProjectsAccess
     {
         private List<ResearchProject> Projects;
-        private readonly string _storageLocation = "";        // Will eventually be the string of the JSON file where data is stored
+        private readonly string _storageLocation = System.AppDomain.CurrentDomain.BaseDirectory + "test.json";        // Will eventually be the string of the JSON file where data is stored
 
         public ProjectsAccess()
         {
@@ -77,6 +77,7 @@ namespace ProjectTracker
             try
             {
                 // TODO write to _storageLocation
+                File.WriteAllText(@_storageLocation, json);
             }
             catch (Exception)
             {
