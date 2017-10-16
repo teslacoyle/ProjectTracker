@@ -19,17 +19,29 @@ namespace ProjectTracker
     /// </summary>
     public partial class AddWindow : Window
     {
+        private ProjectsAccess pa;
+        ResearchProject newProj;
         public AddWindow()
         {
+            pa = new ProjectsAccess();
+            newProj = new ResearchProject();
             InitializeComponent();
+            this.DataContext = newProj;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            newProj.LastModified = DateTime.Now;
+            pa.AddProject(newProj);
+            MainWindow main = new MainWindow();
+            App.Current.MainWindow = main;
+            this.Close();
+            main.ShowDialog();
+        }
 
-            System.Windows.Data.CollectionViewSource researchProjectViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("researchProjectViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // researchProjectViewSource.Source = [generic data source]
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            pa.OnClosing();
         }
     }
 }

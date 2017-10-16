@@ -40,5 +40,10 @@ namespace ProjectTracker
             //load data
             UpdateContext();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -21,33 +21,15 @@ namespace ProjectTracker
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ProjectsAccess pa;
-
         public MainWindow()
         {
             InitializeComponent();
-            pa = new ProjectsAccess();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button clicked = (Button) sender;
-            /*ResearchProject rp = new ResearchProject()
-            {
-                Investigators = "Eli Coyle",
-                CoInvestigators = "Eli's Assistant",
-                ProjectTitle = "Test Project"+i.ToString(),
-                Objectives = "Some Objectives",
-                Methods = "Some Methods",
-                Results = "Some Results",
-                Conclusions = "Some Conclusions",
-                FutureStudies = "None Planned",
-                LastModified = DateTime.Now
-            };
-            pa.AddProject(rp);
-            i++;
-            UpdateContext();
-            */
+
             switch (clicked.Name)
             {
                 case "AddButton":
@@ -76,11 +58,6 @@ namespace ProjectTracker
                     //don't need to change windows, maybe need to make a new one 
                     break;
             }
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            pa.OnClosing();
         }
     }
 }
