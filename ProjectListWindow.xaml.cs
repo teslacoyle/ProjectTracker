@@ -43,7 +43,20 @@ namespace ProjectTracker
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Button clicked = (Button)sender;
+            switch (clicked.Name)
+            {
+                case "AddButton":
+                    AddWindow aw = new AddWindow();
+                    App.Current.MainWindow = aw;
+                    this.Close();
+                    aw.ShowDialog();
+                    break;
+                case "EditButton":
+                    break;
+                case "RemoveButton":
+                    break;
+            }
         }
     }
 }
