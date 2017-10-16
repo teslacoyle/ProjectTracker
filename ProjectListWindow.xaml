@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectTracker"
         mc:Ignorable="d"
-        Title="ProjectListWindow" Height="350" Width="900"
+        Title="ProjectListWindow" Height="300" Width="900"
         Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="researchProjectViewSource" d:DesignSource="{d:DesignInstance {x:Type local:ResearchProject}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource researchProjectViewSource}">
 
-        <DataGrid x:Name="researchProjectDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="11,35,9,30" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="researchProjectDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,35" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
                 <DataGridTemplateColumn x:Name="investigatorsColumn" Header="Investigators" Width="SizeToHeader">
                     <DataGridTemplateColumn.CellTemplate>
@@ -79,9 +79,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddButton" Content="_Add New" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_Click"/>
-        <Button x:Name="EditButton" Content="_Edit Selected" HorizontalAlignment="Left" Margin="703,294,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_Click"/>
-        <Button x:Name="EditButton_Copy" Content="_Remove Selected" HorizontalAlignment="Left" Margin="783,294,0,0" VerticalAlignment="Top" Width="100" Height="20" Click="Button_Click"/>
-        <Button Content="Back to Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0" Click="Button_Click"/>
+        <Button x:Name="AddButton" Content="_Add New" HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
+        <Button x:Name="EditButton" Content="_Edit Selected" HorizontalAlignment="Left" Margin="703,241,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
+        <Button x:Name="EditButton_Copy" Content="_Remove Selected" HorizontalAlignment="Left" Margin="783,241,0,0" VerticalAlignment="Top" Width="100" Height="20"/>
     </Grid>
 </Window>

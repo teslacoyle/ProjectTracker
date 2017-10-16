@@ -51,6 +51,8 @@ namespace ProjectTracker
                     this.Close();
                     rw.ShowDialog();
                     */
+                    ReportCreator rc = new ReportCreator();
+                    rc.CreateReport();
                     break;
                 case "clearButton":
                     //don't need to change windows, maybe need to make a new one 
