@@ -79,7 +79,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddButton" Content="_Add New (?)" HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
+        <Button x:Name="AddButton" Content="_Add New" HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
         <Button x:Name="EditButton" Content="_Edit Selected" HorizontalAlignment="Left" Margin="703,241,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
         <Button x:Name="EditButton_Copy" Content="_Remove Selected" HorizontalAlignment="Left" Margin="783,241,0,0" VerticalAlignment="Top" Width="100" Height="20"/>
     </Grid>
