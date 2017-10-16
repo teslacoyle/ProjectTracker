@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectTracker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="101" Width="254">
+        Title="MainWindow" Height="101" Width="233">
     <Grid>
         <Button x:Name="AddButton" Content="_Add a Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="10,35,0,0" Click="Button_Click"/>
-        <Button x:Name="ListButton" Content="_List all Projects" HorizontalAlignment="Left" Margin="105,35,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
+        <Button x:Name="ListButton" Content="_List all Projects" HorizontalAlignment="Left" Margin="115,35,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
         <Button x:Name="ReportButton" Content="_Generate Report" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
         <Button x:Name="ClearButton" Content="_Clear All Entries" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Background="Red"/>
     </Grid>
