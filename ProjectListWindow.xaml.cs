@@ -55,8 +55,25 @@ namespace ProjectTracker
                 case "EditButton":
                     break;
                 case "RemoveButton":
+                    DataGrid dg = (DataGrid)FindName("researchProjectDataGrid");
+                    pa.RemoveProject((ResearchProject)dg.SelectedItem);
+                    UpdateContext();
                     break;
             }
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            App.Current.MainWindow = mw;
+            this.Close();
+            mw.ShowDialog();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            pa.CloseStorage();
+        }
+
     }
 }

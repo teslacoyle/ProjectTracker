@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectTracker"
         mc:Ignorable="d"
-        Title="AddWindow" Height="350" Width="640" Closing="Window_Closing">
-    <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top">
+        Title="AddWindow" Height="350" Width="640">
+    <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="520">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="126"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -22,21 +22,22 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Project Title:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-        <TextBox x:Name="projectTitleTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding ProjectTitle, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="projectTitleTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="0" Text="{Binding ProjectTitle, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
         <Label Content="Investigator(s):" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-        <TextBox x:Name="investigatorsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Investigators, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="investigatorsTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="1" Text="{Binding Investigators, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
         <Label Content="Co-Investigator(s):" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-        <TextBox x:Name="coInvestigatorsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding CoInvestigators, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="coInvestigatorsTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="2" Text="{Binding CoInvestigators, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
         <Label Content="Objectives:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-        <TextBox x:Name="objectivesTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding Objectives, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="objectivesTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="3" Text="{Binding Objectives, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
         <Label Content="Methods:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-        <TextBox x:Name="methodsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding Methods, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="methodsTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="4" Text="{Binding Methods, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
         <Label Content="Results:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-        <TextBox x:Name="resultsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding Results, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="resultsTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="5" Text="{Binding Results, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
         <Label Content="Conclusions:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-        <TextBox x:Name="conclusionsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding Conclusions, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="conclusionsTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="6" Text="{Binding Conclusions, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
         <Label Content="Future Studies:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
-        <TextBox x:Name="futureStudiesTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding FutureStudies, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="3,52,0,-20" Grid.Row="7" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" Click="Button_Click"/>
+        <TextBox x:Name="futureStudiesTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="7" Text="{Binding FutureStudies, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
+        <Button x:Name="AddButton" Content="Add Project" Margin="411,24,-373.667,0" VerticalAlignment="Top" Click="Button_Click" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2"/>
+        <Button x:Name="BackButton" Content="Back to Menu" Grid.Column="1" Margin="411,17,-373.667,-5" VerticalAlignment="Top" Click="BackButton_Click" Grid.Row="7"/>
     </Grid>
 </Window>

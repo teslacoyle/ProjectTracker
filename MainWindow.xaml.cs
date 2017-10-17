@@ -29,7 +29,6 @@ namespace ProjectTracker
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button clicked = (Button) sender;
-
             switch (clicked.Name)
             {
                 case "AddButton":
@@ -52,10 +51,13 @@ namespace ProjectTracker
                     rw.ShowDialog();
                     */
                     ReportCreator rc = new ReportCreator();
-                    rc.CreateReport();
+                    rc.CreateReport(true);
                     break;
-                case "clearButton":
+                case "ClearButton":
                     //don't need to change windows, maybe need to make a new one 
+                    ProjectsAccess pa = new ProjectsAccess();
+                    pa.RemoveAllProjects();
+                    pa.CloseStorage();
                     break;
             }
         }

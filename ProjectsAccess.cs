@@ -51,11 +51,11 @@ namespace ProjectTracker
             }
         }
 
-        internal void RemoveProject(string projName)
+        internal void RemoveProject(ResearchProject proj)
         {
             try
             {
-                ResearchProject toRemove = Projects.Single(x => x.ProjectTitle == projName);
+                ResearchProject toRemove = Projects.Single(x => x.Equals(proj));
                 Projects.Remove(toRemove);
             }
             catch (Exception)
@@ -71,7 +71,7 @@ namespace ProjectTracker
             Projects = new List<ResearchProject>();
         }
 
-        internal void OnClosing()
+        internal void CloseStorage()
         {
             string json = JsonConvert.SerializeObject(Projects);
             try

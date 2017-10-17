@@ -20,13 +20,15 @@ namespace ProjectTracker
 
 
 
-        internal void CreateReport()
+        internal void CreateReport(bool leaveOpen)
         {
             ProjectsAccess pa = new ProjectsAccess();
             List<ResearchProject> Projects = pa.GetProjectsList();
 
             Word._Application _app = new Word.Application();
-            //_app.Visible = true;
+            
+            if(leaveOpen)
+                _app.Visible = true;
 
             object missing = Type.Missing;
             Word.Document doc = _app.Documents.Add(ref missing, ref missing, ref missing, ref missing);
@@ -45,13 +47,15 @@ namespace ProjectTracker
                 currentParagraph.Range.InsertParagraphAfter();
             }
 
-            object file_name = AppDomain.CurrentDomain.BaseDirectory + "test.docx";
-            object file_type = Word.WdSaveFormat.wdFormatDocumentDefault;
-            doc.SaveAs(ref file_name, ref file_type, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing);
-
-            object save_changes = false;
-            doc.Close(ref save_changes, ref missing, ref missing);
-            _app.Quit(ref save_changes, ref missing, ref missing);
+            if (!leaveOpen)
+            {
+                object file_name = AppDomain.CurrentDomain.BaseDirectory + "test.docx";
+                object file_type = Word.WdSaveFormat.wdFormatDocumentDefault;
+                doc.SaveAs(ref file_name, ref file_type, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing, ref missing);
+                object save_changes = false;
+                doc.Close(ref save_changes, ref missing, ref missing);
+                _app.Quit(ref save_changes, ref missing, ref missing);
+            }
         } 
 
     }

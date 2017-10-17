@@ -33,15 +33,20 @@ namespace ProjectTracker
         {
             newProj.LastModified = DateTime.Now;
             pa.AddProject(newProj);
+            pa.CloseStorage();
+
             MainWindow main = new MainWindow();
             App.Current.MainWindow = main;
             this.Close();
             main.ShowDialog();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            pa.OnClosing();
+            MainWindow mw = new MainWindow();
+            App.Current.MainWindow = mw;
+            this.Close();
+            mw.ShowDialog();
         }
     }
 }

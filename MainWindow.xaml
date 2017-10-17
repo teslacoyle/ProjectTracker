@@ -10,6 +10,6 @@
         <Button x:Name="AddButton" Content="_Add a Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,35,0,0" Click="Button_Click"/>
         <Button x:Name="ListButton" Content="_List all Projects" HorizontalAlignment="Left" Margin="115,35,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
         <Button x:Name="ReportButton" Content="_Generate Report" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
-        <Button x:Name="ClearButton" Content="_Clear All Entries" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Background="Red"/>
+        <Button x:Name="ClearButton" Content="_Clear All Entries" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Background="Red" Click="Button_Click"/>
     </Grid>
 </Window>
