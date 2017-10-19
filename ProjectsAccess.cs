@@ -50,6 +50,21 @@ namespace ProjectTracker
             }
         }
 
+        internal void UpdateProject(ResearchProject proj)
+        {
+            try
+            {
+                Projects.Remove(Projects.Single(x => x.AssociatedFaculty == proj.AssociatedFaculty && x.LastModified == proj.LastModified));
+                proj.LastModified = DateTime.Now;
+                AddProject(proj);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         internal void RemoveProject(ResearchProject proj)
         {
             try

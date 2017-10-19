@@ -61,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="EditWindow.xaml.cs">
+      <DependentUpon>EditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddWindow.xaml.cs">
       <DependentUpon>AddWindow.xaml</DependentUpon>
     </Compile>

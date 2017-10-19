@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTracker
 {
-    class ResearchProject
+    public class ResearchProject
     {
         public string AssociatedFaculty { get; set; }
         public DateTime LastModified { get; set; }

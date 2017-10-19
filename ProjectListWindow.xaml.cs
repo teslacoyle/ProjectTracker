@@ -45,6 +45,8 @@ namespace ProjectTracker
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            DataGrid dg;
+            ResearchProject rp;
             Button clicked = (Button)sender;
             switch (clicked.Name)
             {
@@ -55,9 +57,25 @@ namespace ProjectTracker
                     this.Close();
                     break;
                 case "EditButton":
+                    dg = (DataGrid)FindName("researchProjectDataGrid");
+                    rp = (ResearchProject)dg.SelectedItem;
+                    if (rp.AssociatedFaculty != associatedName)
+                    {
+                        Console.WriteLine("You are not associated with this project.");
+                        break;
+                    }
+                    EditWindow ew = new EditWindow(associatedName, (ResearchProject)dg.SelectedItem);
+                    ew.Show();
+                    this.Close();
                     break;
                 case "RemoveButton":
-                    DataGrid dg = (DataGrid)FindName("researchProjectDataGrid");
+                    dg = (DataGrid)FindName("researchProjectDataGrid");
+                    rp = (ResearchProject)dg.SelectedItem;
+                    if (rp.AssociatedFaculty != associatedName)
+                    {
+                        Console.WriteLine("You are not associated with this project.");
+                        break;
+                    }
                     pa.RemoveProject((ResearchProject)dg.SelectedItem);
                     UpdateContext();
                     break;
