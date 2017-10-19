@@ -21,8 +21,10 @@ namespace ProjectTracker
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly string associatedName;
+        public MainWindow(string facultyName)
         {
+            associatedName = facultyName;
             InitializeComponent();
         }
 
@@ -32,24 +34,18 @@ namespace ProjectTracker
             switch (clicked.Name)
             {
                 case "AddButton":
-                    AddWindow aw = new AddWindow();
+                    AddWindow aw = new AddWindow(associatedName);
                     App.Current.MainWindow = aw;
+                    aw.Show();
                     this.Close();
-                    aw.ShowDialog();
                     break;
                 case "ListButton":
-                    ProjectListWindow lw = new ProjectListWindow();
+                    ProjectListWindow lw = new ProjectListWindow(associatedName);
                     App.Current.MainWindow = lw;
+                    lw.Show();
                     this.Close();
-                    lw.ShowDialog();
                     break;
                 case "ReportButton":
-                    /*      do I need to switch windows, or just open new? hmm 
-                    ReportWindow rw = new ReportWindow();
-                    App.Current.MainWindow = rw;
-                    this.Close();
-                    rw.ShowDialog();
-                    */
                     ReportCreator rc = new ReportCreator();
                     rc.CreateReport(true);
                     break;

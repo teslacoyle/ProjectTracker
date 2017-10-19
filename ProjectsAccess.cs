@@ -22,7 +22,6 @@ namespace ProjectTracker
             else
             {
                 Projects = new List<ResearchProject>();
-                //Remember to uncomment this, Eli.
                 //throw new FileNotFoundException();
             }
         }
@@ -31,7 +30,7 @@ namespace ProjectTracker
         // May also want to create an overload that takes a search profile (to use for LINQ)- depends on customer need 
         internal List<ResearchProject> GetProjectsList()
         {
-            return Projects;
+            return Projects.OrderBy(x => x.AssociatedFaculty).ToList();
         }
         
         internal void AddProject(ResearchProject proj)

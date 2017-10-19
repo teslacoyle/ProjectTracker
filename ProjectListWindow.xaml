@@ -14,6 +14,13 @@
 
         <DataGrid x:Name="researchProjectDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,35" RowDetailsVisibilityMode="VisibleWhenSelected" SelectionUnit="FullRow" SelectionMode="Single">
             <DataGrid.Columns>
+                <DataGridTemplateColumn x:Name="associationColumn" Header="Associated Faculty" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding AssociatedFaculty}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn x:Name="investigatorsColumn" Header="Investigators" Width="SizeToHeader">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

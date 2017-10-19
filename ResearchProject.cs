@@ -8,6 +8,7 @@ namespace ProjectTracker
 {
     class ResearchProject
     {
+        public string AssociatedFaculty { get; set; }
         public DateTime LastModified { get; set; }
         public string Investigators { get; set; }
         public string CoInvestigators { get; set; }
@@ -18,6 +19,10 @@ namespace ProjectTracker
         public string Conclusions { get; set; }
         public string FutureStudies { get; set; }
 
-        public ResearchProject() { }
+        // Disallow Research Projects that cannot be associted with a Faculty Member
+        public ResearchProject(string associatedFaculty)
+        {
+            AssociatedFaculty = associatedFaculty;
+        }
     }
 }

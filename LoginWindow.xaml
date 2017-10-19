@@ -1,0 +1,14 @@
+﻿<Window x:Class="ProjectTracker.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectTracker"
+        mc:Ignorable="d"
+        Title="Enter Your Last Name" Height="180" Width="300">
+    <StackPanel>
+        <TextBlock TextWrapping="Wrap" Text="Please enter your last name to continue. Projects that you add are associated with this name, so verify that it is spelled correctly every time you enter it." TextAlignment="Center" Margin="5,10,5,0"/>
+        <TextBox x:Name="facultyName" Height="22" TextWrapping="Wrap" Margin="31,10,31,0"/>
+        <Button Content="Continue" Margin="60,10,60,0" Click="Button_Click"/>
+    </StackPanel>
+</Window>

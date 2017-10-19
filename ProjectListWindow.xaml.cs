@@ -20,11 +20,13 @@ namespace ProjectTracker
     /// </summary>
     public partial class ProjectListWindow : Window
     {
+        private readonly string associatedName;
         private ProjectsAccess pa;
         CollectionViewSource researchProjectViewSource;
 
-        public ProjectListWindow()
+        public ProjectListWindow(string facultyName)
         {
+            associatedName = facultyName;
             pa = new ProjectsAccess();
             InitializeComponent();
         }
@@ -47,10 +49,10 @@ namespace ProjectTracker
             switch (clicked.Name)
             {
                 case "AddButton":
-                    AddWindow aw = new AddWindow();
+                    AddWindow aw = new AddWindow(associatedName);
                     App.Current.MainWindow = aw;
+                    aw.Show();
                     this.Close();
-                    aw.ShowDialog();
                     break;
                 case "EditButton":
                     break;
@@ -64,10 +66,10 @@ namespace ProjectTracker
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
+            MainWindow mw = new MainWindow(associatedName);
             App.Current.MainWindow = mw;
+            mw.Show();
             this.Close();
-            mw.ShowDialog();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

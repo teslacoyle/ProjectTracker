@@ -19,12 +19,15 @@ namespace ProjectTracker
     /// </summary>
     public partial class AddWindow : Window
     {
+        private readonly string associatedName;
         private ProjectsAccess pa;
         ResearchProject newProj;
-        public AddWindow()
+        public AddWindow(string facultyName)
         {
+            associatedName = facultyName;
+
             pa = new ProjectsAccess();
-            newProj = new ResearchProject();
+            newProj = new ResearchProject(associatedName);
             InitializeComponent();
             this.DataContext = newProj;
         }
@@ -35,18 +38,18 @@ namespace ProjectTracker
             pa.AddProject(newProj);
             pa.CloseStorage();
 
-            MainWindow main = new MainWindow();
+            MainWindow main = new MainWindow(associatedName);
             App.Current.MainWindow = main;
+            main.Show();
             this.Close();
-            main.ShowDialog();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow();
+            MainWindow mw = new MainWindow(associatedName);
             App.Current.MainWindow = mw;
+            mw.Show();
             this.Close();
-            mw.ShowDialog();
         }
     }
 }
