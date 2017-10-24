@@ -51,9 +51,8 @@ namespace ProjectTracker
                     break;
                 case "ClearButton":
                     //don't need to change windows, maybe need to make a new one 
-                    ProjectsAccess pa = new ProjectsAccess();
-                    pa.RemoveAllProjects();
-                    pa.CloseStorage();
+                    ConfirmDelete deleteWindow = new ConfirmDelete();
+                    deleteWindow.Show();
                     break;
             }
         }

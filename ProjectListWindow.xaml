@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectTracker"
         mc:Ignorable="d"
-        Title="ProjectListWindow" Height="300" Width="900"
+        Title="Project List" Height="300" Width="920"
         Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
         <CollectionViewSource x:Key="researchProjectViewSource" d:DesignSource="{d:DesignInstance {x:Type local:ResearchProject}, CreateList=True}"/>
@@ -87,7 +87,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="AddButton" Content="_Add New" HorizontalAlignment="Left" Margin="623,236,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_Click"/>
-        <Button x:Name="RemoveButton" Content="_Remove Selected" HorizontalAlignment="Left" Margin="783,236,0,0" VerticalAlignment="Top" Width="100" Height="20" Click="Button_Click"/>
+        <Button x:Name="RemoveButton" Content="_Remove Selected" Margin="783,236,10.333,0" VerticalAlignment="Top" Height="20" Click="Button_Click"/>
         <Button x:Name="BackButton" Content="Back to Menu" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="90" Click="BackButton_Click"/>
         <Button x:Name="EditButton" Content="Edit Selected" HorizontalAlignment="Left" Margin="703,236,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_Click"/>
     </Grid>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="ProjectTracker.ConfirmDelete"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectTracker"
+        mc:Ignorable="d"
+        Title="Confirm" Height="170" Width="300">
+    <StackPanel Margin="0,0,0.333,0.667">
+        <TextBlock x:Name="confirmText" TextWrapping="Wrap" Text="WARNING: Proceeding will delete all entries from storage. Please enter the admin password and press &quot;OK&quot; to confirm." Margin="0,20,0,0" TextAlignment="Center"/>
+        <TextBox x:Name="passwordText" Height="23" TextWrapping="Wrap" Margin="30,10,30,0"/>
+        <Button x:Name="cancelButton" Content="Cancel" Margin="0,10,120,0" Width="100" Click="cancelButton_Click"/>
+        <Button x:Name="confirmButton" Content="OK" Width="100" Margin="150,-20,0,0" HorizontalAlignment="Left" Click="confirmButton_Click"/>
+    </StackPanel>
+</Window>

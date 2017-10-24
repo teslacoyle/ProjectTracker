@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectTracker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="150" Width="233">
+        Title="Project Tracker" Height="150" Width="233">
     <Grid>
         <Button x:Name="AddButton" Content="_Add a Project" HorizontalAlignment="Left" Width="100" Margin="10,61,0,0" Click="Button_Click" Height="46" VerticalAlignment="Top"/>
         <Button x:Name="ListButton" Content="_List all Projects" Margin="117,61,0,0" Click="Button_Click" HorizontalAlignment="Left" Width="98" Height="46" VerticalAlignment="Top"/>

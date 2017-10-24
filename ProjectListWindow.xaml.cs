@@ -61,7 +61,8 @@ namespace ProjectTracker
                     rp = (ResearchProject)dg.SelectedItem;
                     if (rp.AssociatedFaculty != associatedName)
                     {
-                        Console.WriteLine("You are not associated with this project.");
+                        BadAssociationWindow ba = new BadAssociationWindow();
+                        ba.Show();
                         break;
                     }
                     EditWindow ew = new EditWindow(associatedName, (ResearchProject)dg.SelectedItem);
@@ -73,7 +74,8 @@ namespace ProjectTracker
                     rp = (ResearchProject)dg.SelectedItem;
                     if (rp.AssociatedFaculty != associatedName)
                     {
-                        Console.WriteLine("You are not associated with this project.");
+                        BadAssociationWindow ba = new BadAssociationWindow();
+                        ba.Show();
                         break;
                     }
                     pa.RemoveProject((ResearchProject)dg.SelectedItem);
