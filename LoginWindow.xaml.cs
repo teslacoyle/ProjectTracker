@@ -27,7 +27,7 @@ namespace ProjectTracker
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             TextBox facultyName = (TextBox) FindName("facultyName");
-            MainWindow mw = new MainWindow(facultyName.Text.ToUpper());
+            MainWindow mw = new MainWindow(facultyName.Text.Trim().ToUpper());
             App.Current.MainWindow = mw;
             mw.Show();
             this.Close();

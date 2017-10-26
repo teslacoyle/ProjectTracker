@@ -50,7 +50,6 @@ namespace ProjectTracker
                     rc.CreateReport(true);
                     break;
                 case "ClearButton":
-                    //don't need to change windows, maybe need to make a new one 
                     ConfirmDelete deleteWindow = new ConfirmDelete();
                     deleteWindow.Show();
                     break;

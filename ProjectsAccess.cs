@@ -122,7 +122,6 @@ namespace ProjectTracker
 
         internal void RemoveAllProjects()
         {
-            //need to have a password of some kind (??)
             Projects = new List<ResearchProject>();
         }
 

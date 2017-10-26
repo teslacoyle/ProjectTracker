@@ -44,6 +44,7 @@ namespace ProjectTracker
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            pa.CloseStorage();
             ProjectListWindow mw = new ProjectListWindow(associatedName);
             App.Current.MainWindow = mw;
             mw.Show();
