@@ -11,7 +11,7 @@ namespace ProjectTracker
     class ProjectsAccess
     {
         private List<ResearchProject> Projects;
-        private readonly string _storageLocation = System.AppDomain.CurrentDomain.BaseDirectory + "test.json";        // Will eventually be the string of the JSON file where data is stored
+        private readonly string _storageLocation = System.AppDomain.CurrentDomain.BaseDirectory + "storage.json";
 
         public ProjectsAccess()
         {
@@ -22,7 +22,6 @@ namespace ProjectTracker
             else
             {
                 Projects = new List<ResearchProject>();
-                //throw new FileNotFoundException();
             }
         }
 
