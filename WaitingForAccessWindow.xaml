@@ -1,0 +1,13 @@
+﻿<Window x:Class="ProjectTracker.WaitingForAccessWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectTracker"
+        mc:Ignorable="d"
+        Title="Waiting For Access" Height="150" Width="300">
+    <Grid>
+        <TextBlock TextWrapping="Wrap" Text="If you see this window, someone else is using the storage file at the moment. It will disappear when they are done, and you will be free to edit it (the program will appear to freeze while waiting- this is normal)." Margin="10" TextAlignment="Center"/>
+
+    </Grid>
+</Window>

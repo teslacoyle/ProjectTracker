@@ -4,25 +4,67 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjectTracker
 {
-    class ProjectsAccess
+    public class ProjectsAccess
     {
         private List<ResearchProject> Projects;
         private readonly string _storageLocation = System.AppDomain.CurrentDomain.BaseDirectory + "storage.json";
+        private FileStream storageStream;
 
         public ProjectsAccess()
         {
-            if(File.Exists(@_storageLocation))
+            storageStream = null;
+            FileInfo storageFile = new FileInfo(@_storageLocation);
+
+            WaitingForAccessWindow wait = new WaitingForAccessWindow();
+            wait.Show();
+            while (IsStorageInUse(storageFile))
             {
-                Projects = JsonConvert.DeserializeObject<List<ResearchProject>>(File.ReadAllText(@_storageLocation));
+                //try every 10 seconds
+                Thread.Sleep(5000);
             }
-            else
+            try
+            {
+                storageStream = storageFile.Open(FileMode.Open, FileAccess.Read, FileShare.None);
+            }
+            catch (IOException)
+            {
+
+                throw;
+            } 
+            using (StreamReader reader = new StreamReader(storageStream))
+            {
+                Projects = JsonConvert.DeserializeObject<List<ResearchProject>>(reader.ReadToEnd());
+            }
+            if (Projects == null)
             {
                 Projects = new List<ResearchProject>();
             }
+            wait.Close();
+            storageStream = storageFile.Open(FileMode.Create, FileAccess.Write, FileShare.None);
+        }
+
+        internal bool IsStorageInUse(FileInfo file)
+        {
+            FileStream stream = null;
+            try
+            {
+                stream = file.Open(FileMode.Open, FileAccess.Read, FileShare.None);
+            }
+            catch (IOException)
+            {
+                return true;
+            }
+            finally
+            {
+                if (stream != null)
+                    stream.Close();
+            }
+            return false;
         }
 
         // Application calls this to get updated list (after editing, adding, removing etc.- use a PropertyChanged event or something).
@@ -42,7 +84,7 @@ namespace ProjectTracker
                 }
                 catch (Exception)
                 {
-
+                    storageStream.Dispose();
                     throw;
                 }
                 
@@ -59,7 +101,7 @@ namespace ProjectTracker
             }
             catch (Exception)
             {
-
+                storageStream.Dispose();
                 throw;
             }
         }
@@ -73,7 +115,7 @@ namespace ProjectTracker
             }
             catch (Exception)
             {
-
+                storageStream.Dispose();
                 throw;
             }
         }
@@ -86,16 +128,26 @@ namespace ProjectTracker
 
         internal void CloseStorage()
         {
-            string json = JsonConvert.SerializeObject(Projects);
-            try
+            //if stream can't be written it has closed already
+            if (storageStream.CanWrite)
             {
-                // TODO write to _storageLocation
-                File.WriteAllText(@_storageLocation, json);
-            }
-            catch (Exception)
-            {
+                string json = JsonConvert.SerializeObject(Projects);
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter(storageStream))
+                    {
+                        writer.Write(json);
+                    }
+                }
+                catch (Exception)
+                {
 
-                throw;
+                    throw;
+                }
+                finally
+                {
+                    storageStream.Dispose();
+                }
             }
         }
     }

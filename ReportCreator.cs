@@ -24,6 +24,7 @@ namespace ProjectTracker
         {
             ProjectsAccess pa = new ProjectsAccess();
             List<ResearchProject> Projects = pa.GetProjectsList();
+            pa.CloseStorage();
 
             Word._Application _app = new Word.Application();
             

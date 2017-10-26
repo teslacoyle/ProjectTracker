@@ -61,6 +61,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WaitingForAccessWindow.xaml.cs">
+      <DependentUpon>WaitingForAccessWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="BadAssociationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +125,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ProjectListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WaitingForAccessWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

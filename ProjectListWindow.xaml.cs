@@ -51,6 +51,7 @@ namespace ProjectTracker
             switch (clicked.Name)
             {
                 case "AddButton":
+                    pa.CloseStorage();
                     AddWindow aw = new AddWindow(associatedName);
                     App.Current.MainWindow = aw;
                     aw.Show();
@@ -65,9 +66,10 @@ namespace ProjectTracker
                         ba.Show();
                         break;
                     }
-                    EditWindow ew = new EditWindow(associatedName, (ResearchProject)dg.SelectedItem);
-                    ew.Show();
+                    pa.CloseStorage();
+                    EditWindow ew = new EditWindow(associatedName ,(ResearchProject)dg.SelectedItem);
                     this.Close();
+                    ew.Show();
                     break;
                 case "RemoveButton":
                     dg = (DataGrid)FindName("researchProjectDataGrid");
