@@ -27,7 +27,7 @@ namespace ProjectTracker
         public ProjectListWindow(string facultyName)
         {
             associatedName = facultyName;
-            pa = new ProjectsAccess();
+
             InitializeComponent();
         }
 
@@ -38,6 +38,7 @@ namespace ProjectTracker
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            pa = new ProjectsAccess();
             researchProjectViewSource = ((CollectionViewSource)(FindResource("researchProjectViewSource")));
             //load data
             UpdateContext();
@@ -51,11 +52,11 @@ namespace ProjectTracker
             switch (clicked.Name)
             {
                 case "AddButton":
-                    pa.CloseStorage();
+                    //pa.CloseStorage();
                     AddWindow aw = new AddWindow(associatedName);
                     App.Current.MainWindow = aw;
-                    aw.Show();
                     this.Close();
+                    aw.Show();
                     break;
                 case "EditButton":
                     dg = (DataGrid)FindName("researchProjectDataGrid");
@@ -66,8 +67,8 @@ namespace ProjectTracker
                         ba.Show();
                         break;
                     }
-                    pa.CloseStorage();
-                    EditWindow ew = new EditWindow(associatedName ,(ResearchProject)dg.SelectedItem);
+                    //pa.CloseStorage();
+                    EditWindow ew = new EditWindow(associatedName, (ResearchProject)dg.SelectedItem);
                     this.Close();
                     ew.Show();
                     break;
@@ -90,14 +91,13 @@ namespace ProjectTracker
         {
             MainWindow mw = new MainWindow(associatedName);
             App.Current.MainWindow = mw;
-            mw.Show();
             this.Close();
+            mw.Show();   
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             pa.CloseStorage();
         }
-
     }
 }

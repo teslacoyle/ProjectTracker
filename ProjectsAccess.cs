@@ -14,18 +14,19 @@ namespace ProjectTracker
         private List<ResearchProject> Projects;
         private readonly string _storageLocation = System.AppDomain.CurrentDomain.BaseDirectory + "storage.json";
         private FileStream storageStream;
+        private FileInfo storageFile;
 
         public ProjectsAccess()
         {
             storageStream = null;
-            FileInfo storageFile = new FileInfo(@_storageLocation);
+            storageFile = new FileInfo(@_storageLocation);
 
             WaitingForAccessWindow wait = new WaitingForAccessWindow();
             wait.Show();
             while (IsStorageInUse(storageFile))
             {
-                //try every 10 seconds
-                Thread.Sleep(5000);
+                //try every half second
+                Thread.Sleep(500);
             }
             try
             {
@@ -33,7 +34,6 @@ namespace ProjectTracker
             }
             catch (IOException)
             {
-
                 throw;
             } 
             using (StreamReader reader = new StreamReader(storageStream))
@@ -84,7 +84,7 @@ namespace ProjectTracker
                 }
                 catch (Exception)
                 {
-                    storageStream.Dispose();
+                    CloseStorage();
                     throw;
                 }
                 
@@ -101,7 +101,7 @@ namespace ProjectTracker
             }
             catch (Exception)
             {
-                storageStream.Dispose();
+                CloseStorage();
                 throw;
             }
         }
@@ -115,7 +115,7 @@ namespace ProjectTracker
             }
             catch (Exception)
             {
-                storageStream.Dispose();
+                CloseStorage();
                 throw;
             }
         }
@@ -128,26 +128,30 @@ namespace ProjectTracker
         internal void CloseStorage()
         {
             //if stream can't be written it has closed already
-            if (storageStream.CanWrite)
-            {
-                string json = JsonConvert.SerializeObject(Projects);
-                try
-                {
-                    using (StreamWriter writer = new StreamWriter(storageStream))
-                    {
-                        writer.Write(json);
-                    }
-                }
-                catch (Exception)
-                {
 
-                    throw;
-                }
-                finally
+            string json = JsonConvert.SerializeObject(Projects);
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(storageStream))
                 {
-                    storageStream.Dispose();
+                    writer.Write(json);
                 }
             }
+            catch (Exception)
+            {
+                string backupString = _storageLocation.Replace("storage.json", ("backup_" + DateTime.Now.ToLongTimeString().Replace(':', '_') + ".json"));
+                FileInfo backupFile = new FileInfo(backupString);
+                storageStream = backupFile.Open(FileMode.Create, FileAccess.Write, FileShare.None);
+                using (StreamWriter writer = new StreamWriter(storageStream))
+                {
+                    writer.Write(json);
+                }
+            }
+            finally
+            {
+                storageStream.Dispose();
+            }
+            
         }
     }
 }

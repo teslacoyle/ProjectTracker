@@ -19,7 +19,7 @@ namespace ProjectTracker
     /// </summary>
     public partial class ConfirmDelete : Window
     {
-        private readonly string pass = "adimin_pass";
+        private readonly string pass = "admin_pass";
 
         public ConfirmDelete()
         {

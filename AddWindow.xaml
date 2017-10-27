@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectTracker"
         mc:Ignorable="d"
-        Title="Add a Project" Height="436" Width="640">
+        Title="Add a Project" Height="436" Width="640" Closing="OnClosing" ContentRendered="GetAccess">
     <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="520">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

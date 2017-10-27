@@ -24,7 +24,6 @@ namespace ProjectTracker
         {
             ProjectsAccess pa = new ProjectsAccess();
             List<ResearchProject> Projects = pa.GetProjectsList();
-            pa.CloseStorage();
 
             Word._Application _app = new Word.Application();
             
@@ -57,6 +56,7 @@ namespace ProjectTracker
                 doc.Close(ref save_changes, ref missing, ref missing);
                 _app.Quit(ref save_changes, ref missing, ref missing);
             }
+            pa.CloseStorage();
         } 
 
     }

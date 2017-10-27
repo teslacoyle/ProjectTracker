@@ -25,31 +25,38 @@ namespace ProjectTracker
         public AddWindow(string facultyName)
         {
             associatedName = facultyName;
-
-            pa = new ProjectsAccess();
             newProj = new ResearchProject(associatedName);
-            InitializeComponent();
             this.DataContext = newProj;
+            InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             newProj.LastModified = DateTime.Now;
             pa.AddProject(newProj);
-            pa.CloseStorage();
 
             MainWindow main = new MainWindow(associatedName);
             App.Current.MainWindow = main;
-            main.Show();
             this.Close();
+            main.Show();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow(associatedName);
             App.Current.MainWindow = mw;
-            mw.Show();
             this.Close();
+            mw.Show();
+        }
+
+        private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            pa.CloseStorage();
+        }
+
+        private void GetAccess(object sender, EventArgs e)
+        {
+            pa = new ProjectsAccess();
         }
     }
 }
