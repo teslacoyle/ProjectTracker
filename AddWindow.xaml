@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectTracker"
         mc:Ignorable="d"
-        Title="Add a Project" Height="436" Width="640" Closing="OnClosing" ContentRendered="GetAccess">
+        Title="Add a Project" Height="494" Width="640" Closing="OnClosing" ContentRendered="GetAccess">
     <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="520">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -22,11 +22,11 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Project Title:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-        <TextBox x:Name="projectTitleTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="0" Text="{Binding ProjectTitle, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
+        <TextBox x:Name="projectTitleTextBox" Grid.Column="1" Height="48" Margin="3,4,-266.667,4" Grid.Row="0" Text="{Binding ProjectTitle, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
         <Label Content="Investigator(s):" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-        <TextBox x:Name="investigatorsTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="1" Text="{Binding Investigators, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
+        <TextBox x:Name="investigatorsTextBox" Grid.Column="1" Height="48" Margin="3,4,-266.667,4" Grid.Row="1" Text="{Binding Investigators, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
         <Label Content="Co-Investigator(s):" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-        <TextBox x:Name="coInvestigatorsTextBox" Grid.Column="1" Height="24" Margin="3,4,-266.667,4" Grid.Row="2" Text="{Binding CoInvestigators, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap"/>
+        <TextBox x:Name="coInvestigatorsTextBox" Grid.Column="1" Height="44" Margin="3,4,-266.667,4" Grid.Row="2" Text="{Binding CoInvestigators, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
         <Label Content="Objectives:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
         <TextBox x:Name="objectivesTextBox" Grid.Column="1" Height="48" Margin="3,4,-266.667,4" Grid.Row="3" Text="{Binding Objectives, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
         <Label Content="Methods:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>

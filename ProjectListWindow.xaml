@@ -86,9 +86,9 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddButton" Content="_Add New" HorizontalAlignment="Left" Margin="623,236,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_Click"/>
-        <Button x:Name="RemoveButton" Content="_Remove Selected" Margin="783,236,10.333,0" VerticalAlignment="Top" Height="20" Click="Button_Click"/>
-        <Button x:Name="BackButton" Content="Back to Menu" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="90" Click="BackButton_Click"/>
-        <Button x:Name="EditButton" Content="Edit Selected" HorizontalAlignment="Left" Margin="703,236,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_Click"/>
+        <Button x:Name="AddButton" Content="_Add New" Margin="0,0,215.333,14.667" Click="Button_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
+        <Button x:Name="RemoveButton" Content="_Remove Selected" Margin="0,0,10.333,14.667" Click="Button_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120"/>
+        <Button x:Name="BackButton" Content="Back to Menu" HorizontalAlignment="Left" Margin="10,0,0,14.667" Width="90" Click="BackButton_Click" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="EditButton" Content="Edit Selected" Margin="0,0,135.333,14.667" Click="Button_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75"/>
     </Grid>
 </Window>

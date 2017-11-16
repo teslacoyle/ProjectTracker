@@ -9,14 +9,14 @@ namespace ProjectTracker
 {
     class ReportCreator
     {
-        string projectFormatString = "Investigator(s): {0}\n" +
-                                     "Co-Investigator(s): {1}\n" +
-                                     "Project Title: {2}\n" +
-                                     "Objectives: {3}\n" +
-                                     "Methods: {4}\n" +
-                                     "Results: {5}\n" +
-                                     "Conclusions: {6}\n" +
-                                     "Future Studies: {7}\n";
+        string projectFormatString = "INVESTIGATOR(S):  {0}\n" +
+                                     "CO-INVESTIGATORS:  {1}\n" +
+                                     "PROJECT TITLE:  {2}\n" +
+                                     "OBJECTIVES:  {3}\n" +
+                                     "METHODS:  {4}\n" +
+                                     "RESULTS:  {5}\n" +
+                                     "CONCLUSIONS:  {6}\n" +
+                                     "FUTURE STUDIES:  {7}\n";
 
 
 
@@ -44,6 +44,7 @@ namespace ProjectTracker
                 currentParagraph.SpaceBefore = 0f;
                 currentParagraph.SpaceAfter = 0f;
                 currentParagraph.Range.Text = String.Format(projectFormatString, proj.Investigators, proj.CoInvestigators, proj.ProjectTitle, proj.Objectives, proj.Methods, proj.Results, proj.Conclusions, proj.FutureStudies);
+
                 currentParagraph.Range.InsertParagraphAfter();
             }
 
